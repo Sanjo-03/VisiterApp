@@ -1,0 +1,60 @@
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <EditText
+        android:id="@+id/n1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="FirstName"
+        android:layout_margin="20dp"
+        android:gravity="left"
+        android:padding="20dp"
+        />
+
+    <EditText
+        android:id="@+id/n2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="LastName"
+        android:gravity="left"
+        android:layout_margin="20dp"
+        android:padding="12dp"
+        />
+    <EditText
+        android:id="@+id/n3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Purpose"
+        android:gravity="left"
+        android:layout_margin="20dp"
+        android:padding="12dp"
+        />
+
+    <EditText
+        android:id="@+id/n4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="WhomToMeet"
+        android:gravity="left"
+        android:layout_margin="20dp"
+        android:padding="12dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK TO MENU"
+        />
+</LinearLayout>
