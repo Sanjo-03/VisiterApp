@@ -14,6 +14,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class AddActivity extends AppCompatActivity {
 
 
@@ -39,6 +47,8 @@ public class AddActivity extends AppCompatActivity {
 
 
         bt1.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
                 s1=t1.getText().toString();
@@ -46,11 +56,43 @@ public class AddActivity extends AppCompatActivity {
                 s3=t3.getText().toString();
                 s4=t4.getText().toString();
 
-                Toast.makeText(getApplicationContext(), s1, Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), s2, Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), s3, Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), s4, Toast.LENGTH_LONG).show();
+
+
+                if (s1.isEmpty()||s2.isEmpty()||s3.isEmpty()||s4.isEmpty())
+                {
+                    Toast.makeText(getApplicationContext(), "All field should be filled", Toast.LENGTH_LONG).show();
+                }
+                else {
+
+                    callApi();
+                }
             }
+
+            private void callApi() {
+
+                String ApiUrl="https://log-app-demo-api.onrender.com/addvisitor";
+                JSONObject data=new JSONObject();
+
+                try {
+                    data.put("firstname",s1);
+                    data.put("lastname",s2);
+                    data.put("purpose",s3);
+                    data.put("whomToMeet",s4);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+                JsonObjectRequest request =new JsonObjectRequest(
+                        Request.Method.POST,
+                        ApiUrl,
+                        data,
+                        response -> Toast.makeText(getApplicationContext(),"Successfully added",Toast.LENGTH_LONG).show(),
+                        error -> Toast.makeText(getApplicationContext(),"something went wrong",Toast.LENGTH_LONG).show()
+                );
+
+                RequestQueue queue= Volley.newRequestQueue(getApplicationContext());
+                queue.add(request);
+            }
+
         });
 
         bt2.setOnClickListener(new View.OnClickListener() {
