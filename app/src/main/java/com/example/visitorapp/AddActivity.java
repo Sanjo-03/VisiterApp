@@ -58,6 +58,7 @@ public class AddActivity extends AppCompatActivity {
 
 
 
+
                 if (s1.isEmpty()||s2.isEmpty()||s3.isEmpty()||s4.isEmpty())
                 {
                     Toast.makeText(getApplicationContext(), "All field should be filled", Toast.LENGTH_LONG).show();
